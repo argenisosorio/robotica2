@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Curso - Aprendizaje en Robótica">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <link rel="icon" href="../../static/img/favicon.png">
+    <title>Curso - Aprendizaje en Robótica</title>
+    <!-- Loader de carga CSS -->
+    <link rel="stylesheet" href="../../static/css/loader_lec4.css" type="text/css"/>
+    <!-- Bootstrap core CSS -->
+    <link href="../../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Loader de carga script js -->
+    <script src="../../static/js/loader.js"></script>
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Mostrar la imagen como spinner de carga -->
+    <div class="spinner-container" id="spinnerContainer">
+        <!-- Cambiar el div con la clase "spinner" por una imagen -->
+        <img src="../../static/img/favicon.png" alt="" class="spinner-img">
+    </div>
+
+    <!-- Banner -->
+    <div class="container-fluidd">
+        <a href="../../index.html">
+        <img
+            id="my-img"
+            src="../../static/img/banner.png"
+            onmouseover="hover(this);"
+            onmouseout="unhover(this);"
+            width="100%"
+        />
+        </a>
+    </div>
+    <!-- Final del Banner -->
+
+    <a
+        href="leccion-4.html"
+        style="
+            text-decoration: none;
+            color: gray;
+        "
+    >
+        <p
+            style="margin-left: 20px; margin-top: 15px; font-size: 20px;"
+        >
+            ⬅️ Volver
+        </p>
+    </a>
+
+    <div class="container">
+        <header>
+            <h1>Prueba tu lógica de Programación con Scratch</h1>
+            <p style="font-size: 20px;">
+                ¡Ayuda a Cendibot a llegar a la Batería
+                <img
+                    src="../../static/img/favicon.png"
+                    alt="Robot"
+                    width="25px"
+                > → 🔋
+                <div class="mt-2">
+                    <audio controls class="custom-audio">
+                        <source
+                            src="../../static/audio/leccion-4/scratch/leccion-4-prueba-scratch.mp3"
+                            type="audio/mpeg"
+                        >
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                </div>
+            </p>
+        </header>
+
+        <div class="workspace">
+            <!-- Bloques ahora están dentro del main-area para mobile -->
+            <div class="main-area" style="border: ridge 1px transparent;">
+                <!-- Area de bloques -->
+                <div class="blocks-panel" id="blocks-panel">
+                    <div class="blocks-content" id="blocks-content">
+                        <h3>Bloques de Movimiento</h3>
+                        <div class="block" draggable="true" data-action="move" data-direction="up">
+                            <span><b>⬆️ MOVER ARRIBA</b></span>
+                        </div>
+                        <div class="block" draggable="true" data-action="move" data-direction="down">
+                            <span><b>⬇️ MOVER ABAJO</b></span>
+                        </div>
+                        <div class="block" draggable="true" data-action="move" data-direction="left">
+                            <span><b>⬅️ MOVER IZQUIERDA</b></span>
+                        </div>
+                        <div class="block" draggable="true" data-action="move" data-direction="right">
+                            <span><b>➡️ MOVER DERECHA</b></span>
+                        </div>
+
+                        <h3>Bloques de Acción</h3>
+                        <div class="block block-action" draggable="true" data-action="eat">
+                            <span><b>🖐🏾 TOMAR</b></span>
+                        </div>
+
+                        <h3>Bloques de Eventos</h3>
+                        <div class="block block-start" draggable="true" data-action="start">
+                            <span><b>🟢 INICIAR</b></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Final de Area de bloques -->
+
+                <!-- Area del medio -->
+                <div class="stage-area" style="border: ridge 1px transparent;">
+                    <!-- Area de mensajes -->
+                    <div class="output" id="output">
+                        <div class="mission" style="font-size: 14px; color: #FFFFFF;">
+                            📝 <b>Misión:</b> ¡Cendibot tiene su batería baja
+                            🪫! Ayúdalo a llegar a la Batería cargada 🔋 usando
+                            los bloques de programación para que recupere toda
+                            su energía ⚡.
+                        </div>
+                    </div>
+                    <!-- Final de Area de mensajes -->
+
+                    <!-- Escenario -->
+                    <div
+                        class="stage"
+                        id="stage"
+                        style="
+                            background: url(bg.png) center center repeat;
+                            background-size: cover;
+                        "
+                    >
+                        <img
+                            class="sprite"
+                            id="sprite"
+                            src="../../static/img/favicon.png"
+                            alt="Robot"
+                            width="40px"
+                        >
+                        <div
+                            class="food"
+                            id="food"
+                            style="
+                                border: ridge 1px #FAFAFA;
+                                border-radius: 200px;
+                                background-color: #FAFAFA;
+                            "
+                        >🔋</div>
+                    </div>
+                    <!-- Final de Escenario -->
+
+                    <!-- Area de Controles -->
+                    <div class="controls">
+                        <div
+                            class="suggestions-button btn-control"
+                            id="suggestions-btn"
+                        >
+                            💡 INSTRUCCIONES
+                        </div>
+                        <div
+                            class="reload-button btn-control"
+                            onclick="window.location.reload();"
+                        >
+                            🔄 REINICIAR
+                        </div>
+                        <div
+                            class="run-button btn-control"
+                            id="run-btn"
+                        >
+                            ✅ EJECUTAR
+                        </div>
+                    </div>
+                    <!-- Final de Area de Controles -->
+                </div>
+                <!-- Final de Area del medio -->
+
+                <!-- Area de Programación -->
+                <div class="scripts-area" id="scripts-area">
+                    <h3>Área de Programación</h3>
+                    <p>Arrastra los bloques aquí para crear tu programa</p>
+                </div>
+                <!-- Final del Area de Programación -->
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <!-- Botones de cambio de lección -->
+    <div class="text-center" style="text-decoration: none;">
+        <a href="leccion-4-que-aprendimos-final.html"><img src="../../static/img/flechas/izq-amarillo.png" width="40px" class="mb-3 llave-inglesa img-rotate-180" style="margin-right: 25px; text-decoration: none;"></a><a href="leccion-4-final.html"><img id="flecha_derecha" src="../../static/img/flechas/der-amarillo.png" width="40px" class="mb-3 llave-inglesa img-rotate-180" style="margin-left: 25px; text-decoration: none;"></a>
+    </div>
+    <!-- Final de botones de cambio de lección -->
+
+    <!-- Footer -->
+    <div class="container-fluid" style="background: #fbbf00; padding: 5px;">
+        <div class="text-center img-zoom mb-3 mt-2">
+        <a href="http://www.cenditel.gob.ve/" target="_blank" style="text-decoration: none; color: #fff;">
+            <img class="logo-brand-mq" src="../../static/img/logo-cenditel.png" width="7%" class="mb-3">
+            <br>
+            <b id="typewriter" style="font-size: 15px; color: #fff"></b>
+        </a>
+        </div>
+    </div>
+    <!-- Final del Footer -->
+
+    <script>
+        const text = "Desarrollado por CENDITEL";
+        const typewriterElement = document.getElementById("typewriter");
+        let index = 0;
+        let deleting = false;
+
+        function typeEffect() {
+        // Mostrar o borrar caracteres
+        typewriterElement.textContent = text.substring(0, index);
+
+        if (!deleting) {
+            if (index < text.length) {
+            index++;
+            } else {
+            deleting = true;
+            setTimeout(typeEffect, 1000); // Pausa antes de borrar
+            return;
+            }
+        } else {
+            if (index > 0) {
+            index--;
+            } else {
+            deleting = false;
+            }
+        }
+
+        // Cambiar la velocidad dependiendo de si escribe o borra
+        const speed = deleting ? 50 : 100;
+        setTimeout(typeEffect, speed);
+        }
+
+        // Iniciar el efecto
+        typeEffect();
+    </script>
+
+    <script>
+    function unhover(element) {
+        element.setAttribute('src', '../../static/img/banner.png');
+        }
+        function hover(element) {
+        element.setAttribute('src', '../../static/img/banner2.png');
+        }
+    </script>
+
+    <script src="script.js"></script>
+    <script src="../../static/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

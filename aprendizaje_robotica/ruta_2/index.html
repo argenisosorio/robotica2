@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Curso - Aprendizaje en Robótica">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://argenisosorio.github.io/aprendizaje_en_robotica_ruta_1/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Curso - Aprendizaje en Robótica">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://opengraph.b-cdn.net/production/images/d8a448a1-3b64-4ed3-befe-36ba9a12abc8.png?token=zsPBgKxpm5n7vKL5Dqq7X_RgMgSc1EBkiBnB946xIS8&height=800&width=800&expires=33276060856">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="argenisosorio.github.io">
+    <meta property="twitter:url" content="https://argenisosorio.github.io/aprendizaje_en_robotica_ruta_1/">
+    <meta name="twitter:title" content="Curso - Aprendizaje en Robótica">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/d8a448a1-3b64-4ed3-befe-36ba9a12abc8.png?token=zsPBgKxpm5n7vKL5Dqq7X_RgMgSc1EBkiBnB946xIS8&height=800&width=800&expires=33276060856">
+    <link rel="icon" href="static/img/favicon.png">
+    <title>Curso - Aprendizaje en Robótica</title>
+    <link rel="stylesheet" href="static/css/loader.css" type="text/css"/>
+    <!-- Loader de carga script js -->
+    <script src="static/js/loader.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- font-awesome-6 -->
+    <link href="static/font-awesome-6/css/fontawesome.css" rel="stylesheet" />
+    <link href="static/font-awesome-6/css/all.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="static/css/theme.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/vendor/styles.css" type="text/css"/>
+    <script src="static/vendor/particles.js" type="text/javascript"></script>
+    <style>
+      html, body {
+        background-color: #fbbf00;
+      }
+
+      /* Estilos generales para móviles */
+      @media (max-width: 767px) {
+        /* Ajustes para el banner */
+        #my-img {
+          width: 100%;
+        }
+
+        /* Ajustes para las lecciones */
+        .leccion-1, .leccion-2, .leccion-3, .leccion-4 {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .leccion-1 .col-4, .leccion-2 .col-4, .leccion-3 .col-4, .leccion-4 .col-4 {
+          width: 100%;
+          order: 1;
+          margin-bottom: 15px;
+        }
+
+        .leccion-1 .col-8, .leccion-2 .col-8, .leccion-3 .col-8, .leccion-4 .col-8 {
+          width: 100%;
+          order: 2;
+        }
+
+        /* Ajuste de tamaño de imagen para móviles */
+        .leccion-1 img, .leccion-2 img, .leccion-3 img, .leccion-4 img {
+          width: 60%;
+        }
+
+        /* Footer ajustes */
+        .img-zoom img {
+          width: 15%;
+        }
+
+        .img-zoom b {
+          font-size: 10px;
+        }
+      }
+
+      /* Estilos para tablets */
+      @media (min-width: 768px) and (max-width: 1024px) {
+        /* Ajustes para el banner */
+        #my-img {
+          width: 100%;
+        }
+
+        /* Ajustes para las lecciones */
+        .leccion-1 .col-4, .leccion-2 .col-4, .leccion-3 .col-4, .leccion-4 .col-4 {
+          width: 50%;
+        }
+
+        .leccion-1 img, .leccion-2 img, .leccion-3 img, .leccion-4 img {
+          width: 50%;
+        }
+
+        /* Footer ajustes */
+        .img-zoom img {
+          width: 10%;
+        }
+
+        .img-zoom b {
+          font-size: 11px;
+        }
+      }
+
+      .section0 {
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
+      }
+
+      .section0.visible {
+        opacity: 1;
+      }
+
+      .section1 {
+        opacity: 0;
+        transform: translateX(-100px); /* Desplazamiento inicial desde la izquierda */
+        transition: opacity 1.3s ease-out, transform 1.3s ease-out;
+      }
+
+      .section1.visible {
+        opacity: 1;
+        transform: translateX(0); /* Posición final */
+      }
+
+      .section2 {
+        opacity: 0;
+        transform: translateX(100px); /* Desplazamiento inicial desde la derecha */
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .section2.visible {
+        opacity: 1;
+        transform: translateX(0); /* Posición final */
+      }
+
+      .section3 {
+        opacity: 0;
+        transform: translateX(-100px); /* Desplazamiento inicial desde la izquierda */
+        transition: opacity 1.3s ease-out, transform 1.3s ease-out;
+      }
+
+      .section3.visible {
+        opacity: 1;
+        transform: translateX(0); /* Posición final */
+      }
+
+      .section4 {
+        opacity: 0;
+        transform: translateX(100px); /* Desplazamiento inicial desde la derecha */
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .section4.visible {
+        opacity: 1;
+        transform: translateX(0); /* Posición final */
+      }
+    </style>
+  </head>
+<body>
+<!-- Mostrar la imagen como spinner de carga -->
+<div class="spinner-container" id="spinnerContainer">
+  <!-- Cambiar el div con la clase "spinner" por una imagen -->
+  <img src="static/img/favicon.png" alt="" class="spinner-img">
+</div>
+
+<!-- Barra de progreso -->
+<div id="progressBar"></div>
+  <audio id="hover-sound0" src="static/audio/banner_sound_effect.mp3"></audio>
+  <audio id="hover-sound1" src="static/audio/Robot_sound_effect.mp3"></audio>
+  <audio id="hover-sound2" src="static/audio/Robot_sound_effect.mp3"></audio>
+  <audio id="hover-sound3" src="static/audio/Robot_sound_effect.mp3"></audio>
+  <audio id="hover-sound4" src="static/audio/Robot_sound_effect.mp3"></audio>
+  <audio id="hover-sound5" src="static/audio/voice-robot-cenditel.mp3"></audio>
+
+  <!-- Barra de progreso -->
+  <div id="progressBar"></div>
+
+  <!-- Banner -->
+  <div class="container-fluidd">
+    <a href="index.html" id="hover-span0">
+      <img
+        id="my-img"
+        src="static/img/banner.png"
+        onmouseover="hover(this);"
+        onmouseout="unhover(this);"
+        width="100%"
+        class="screwdriver-cursor section0"
+      />
+    </a>
+  </div>
+  <!-- Final del Banner -->
+
+  <div class="container-fluid">
+    <!-- Lección 1 -->
+    <div class="row leccion-1">
+      <div class="col-4 text-center section1">
+        <a href="views/leccion-1/leccion-1.html" id="hover-span1">
+          <img
+            src="static/img/Leccion-1/leccion-1-logo.png"
+            width="40%"
+            class="img-rotate llave-inglesa"
+          >
+        </a>
+      </div>
+      <div class="col-8">
+      </div>
+    </div>
+    <!-- Final de Lección 1 -->
+
+    <!-- Lección 2 -->
+    <div class="row leccion-2">
+      <div class="col-8">
+      </div>
+      <div class="col-4 text-center section2">
+        <a href="views/leccion-2/leccion-2.html" id="hover-span2">
+          <img
+            src="static/img/Leccion-2/leccion-2-logo.png"
+            width="40%"
+            class="img-rotate llave-inglesa"
+          >
+        </a>
+      </div>
+    </div>
+    <!-- Final de Lección 2 -->
+
+    <!-- Lección 3 -->
+    <div class="row leccion-3">
+      <div class="col-4 text-center section3">
+        <a href="views/leccion-3/leccion-3.html" id="hover-span3">
+          <img
+            src="static/img/Leccion-3/leccion-3-logo.png"
+            width="40%"
+            class="img-rotate llave-inglesa"
+          >
+        </a>
+      </div>
+      <div class="col-8">
+      </div>
+    </div>
+    <!-- Final de Lección 3 -->
+
+    <!-- Lección 4 -->
+    <div class="row leccion-4 mb-5">
+      <div class="col-8">
+      </div>
+      <div class="col-4 text-center section4">
+        <a href="views/leccion-4/leccion-4.html" id="hover-span4">
+          <img
+            src="static/img/Leccion-4/leccion-4-logo.png"
+            width="40%"
+            class="img-rotate llave-inglesa"
+          >
+        </a>
+      </div>
+    </div>
+    <!-- Final de Lección 4 -->
+
+    <!-- Footer -->
+    <div id="particles-js" class="text-center img-zoom mb-3">
+      <a href="http://www.cenditel.gob.ve/" target="_blank" id="hover-span5">
+        <img
+          src="static/img/logo-cenditel.png"
+          width="7%"
+          class="mb-3 screwdriver-cursor"
+        >
+        <br>
+        <b id="typewriter" style="font-size: 15px; color: #fff"></b>
+      </a>
+    </div>
+    <!-- Final del Footer -->
+  </div>
+
+  <script src="static/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function unhover(element) {
+      element.setAttribute('src', 'static/img/banner.png');
+    }
+    function hover(element) {
+      element.setAttribute('src', 'static/img/banner2.png');
+    }
+
+    // Función para intentar reproducir el audio
+    function playSound(audioId) {
+      var audio = document.getElementById(audioId);
+      audio.play().catch(function(error) {
+          console.log('Error al reproducir el sonido: ', error);
+      });
+    }
+
+    // Función para inicializar los eventos de hover para cada par de elementos
+    function initializeHoverSound(hoverId, audioId) {
+      var hoverElement = document.getElementById(hoverId);
+      hoverElement.addEventListener('mouseover', function() {
+        playSound(audioId);
+      });
+    }
+
+    // Listener para el primer clic que habilita la reproducción de audio
+    document.body.addEventListener('click', function firstClick() {
+      var audio = document.getElementById('hover-sound1');
+      audio.play().then(() => {
+        // Inicializar eventos de hover para cada par de elementos
+        initializeHoverSound('hover-span0', 'hover-sound0');
+        initializeHoverSound('hover-span1', 'hover-sound1');
+        initializeHoverSound('hover-span2', 'hover-sound2');
+        initializeHoverSound('hover-span3', 'hover-sound3');
+        initializeHoverSound('hover-span4', 'hover-sound4');
+        initializeHoverSound('hover-span5', 'hover-sound5');
+        // Quitar este listener de clic ya que solo se necesita una vez
+        document.body.removeEventListener('click', firstClick);
+      }).catch(function(error) {
+        console.log('Error al reproducir el sonido en el primer clic: ', error);
+      });
+    });
+
+    /* ---- particles.js config ---- */
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 100,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          },
+          "polygon": {
+            "nb_sides": 5
+          },
+          "image": {
+            "src": "img/github.svg",
+            "width": 100,
+            "height": 100
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false,
+          "anim": {
+            "enable": false,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 40,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 6,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": false,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "grab"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 140,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 8,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 200,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+
+  <script>
+    const text = "Desarrollado por CENDITEL";
+    const typewriterElement = document.getElementById("typewriter");
+    let index = 0;
+    let deleting = false;
+
+    function typeEffect() {
+      // Mostrar o borrar caracteres
+      typewriterElement.textContent = text.substring(0, index);
+
+      if (!deleting) {
+        if (index < text.length) {
+          index++;
+        } else {
+          deleting = true;
+          setTimeout(typeEffect, 1000); // Pausa antes de borrar
+          return;
+        }
+      } else {
+        if (index > 0) {
+          index--;
+        } else {
+          deleting = false;
+        }
+      }
+
+      // Cambiar la velocidad dependiendo de si escribe o borra
+      const speed = deleting ? 50 : 100;
+      setTimeout(typeEffect, speed);
+    }
+
+    // Iniciar el efecto
+    typeEffect();
+  </script>
+
+  <script>
+    // Selecciona la barra de progreso
+    const progressBar = document.getElementById('progressBar');
+
+    // Escuchar el evento de scroll
+    window.addEventListener('scroll', () => {
+    // Altura total del documento
+    const scrollHeight = document.documentElement.scrollHeight;
+
+    // Altura visible de la ventana
+    const clientHeight = document.documentElement.clientHeight;
+
+    // Distancia desplazada desde la parte superior
+    const scrollTop = document.documentElement.scrollTop;
+
+    // Calcular el porcentaje de progreso
+    const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+
+    // Actualizar el ancho de la barra
+    progressBar.style.width = `${scrollPercentage}%`;
+    });
+  </script>
+
+  <script>
+    // Script JavaScript para efecto de aparición de section0
+    const sections0 = document.querySelectorAll('.section0');
+    const observer0 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    sections0.forEach(section0 => observer0.observe(section0));
+
+    // Script JavaScript para efecto de aparición de section1
+    const sections1 = document.querySelectorAll('.section1');
+    const observer1 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    sections1.forEach(section1 => observer1.observe(section1));
+
+    // Script JavaScript para efecto de aparición de section2
+    const sections2 = document.querySelectorAll('.section2');
+    const observer2 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    sections2.forEach(section2 => observer2.observe(section2));
+
+    // Script JavaScript para efecto de aparición de section3
+    const sections3 = document.querySelectorAll('.section3');
+    const observer3 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    sections3.forEach(section3 => observer3.observe(section3));
+
+    // Script JavaScript para efecto de aparición de section4
+    const sections4 = document.querySelectorAll('.section4');
+    const observer4 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    sections4.forEach(section4 => observer4.observe(section4));
+  </script>
+</body>
+</html>

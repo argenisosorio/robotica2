@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Curso - Aprendizaje en Robótica">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <link rel="icon" href="../../static/img/favicon.png">
+    <title>Curso - Aprendizaje en Robótica</title>
+    <!-- Loader de carga -->
+    <link rel="stylesheet" href="../../static/css/loader.css" type="text/css"/>
+    <!-- Loader de carga script js -->
+    <script src="../../static/js/loader.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="../../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- font-awesome-6 -->
+    <link href="../../static/font-awesome-6/css/fontawesome.css" rel="stylesheet" />
+    <link href="../../static/font-awesome-6/css/all.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="../../static/css/theme.css" rel="stylesheet">
+    <style>
+      .list-group-item {
+        background-color: #fff !important;
+        border-color: #fff !important;
+      }
+      .list-group-item.active {
+        z-index: 2;
+        color: #fff;
+        background-color: #00a4e1 !important;
+        border-color: #0d6efd;
+      }
+      .btn-success {
+        width: 100%;
+        background: #fff;
+        color: #00a4e1;
+        border-color: #00a4e1;
+      }
+      .btn-success.active {
+        color: #fff;
+        background-color: #00a4e1 !important;
+        border-color: #0d6efd;
+      }
+      .btn-success:hover {
+        background: #00a4e1;
+        border-color: #fff;
+      }
+      /* Estilos generales para todos los tamaños de pantalla */
+      #my-img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Dispositivos pequeños (teléfonos) */
+      @media (max-width: 576px) {
+        .col-3 {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+
+        .col-9 {
+          width: 100%;
+        }
+
+        .btn-success img {
+          width: 15%;
+        }
+
+        h1 {
+          font-size: 30px;
+        }
+      }
+
+      /* Dispositivos medianos (tabletas) */
+      @media (min-width: 577px) and (max-width: 768px) {
+        .col-3 {
+          width: 40%;
+        }
+
+        .col-9 {
+          width: 60%;
+        }
+
+        .btn-success img {
+          width: 12%;
+        }
+
+        h1 {
+          font-size: 40px;
+        }
+      }
+
+      /* Dispositivos grandes (computadoras de escritorio) */
+      @media (min-width: 769px) {
+        .col-3 {
+          width: 25%;
+        }
+
+        .col-9 {
+          width: 75%;
+        }
+
+        .btn-success img {
+          width: 9%;
+        }
+
+        .btn-success {
+          padding: 10px;
+        }
+
+        h1 {
+          font-size: 50px;
+        }
+      }
+    </style>
+  </head>
+<body>
+  <!-- Mostrar la imagen como spinner de carga -->
+  <div class="spinner-container" id="spinnerContainer">
+    <!-- Cambiar el div con la clase "spinner" por una imagen -->
+    <img src="../../static/img/favicon.png" alt="" class="spinner-img">
+  </div>
+
+  <!-- Barra de progreso -->
+  <div id="progressBar"></div>
+
+  <!-- Banner -->
+  <div class="container-fluidd">
+    <a href="../../index.html">
+      <img
+        id="my-img"
+        src="../../static/img/banner.png"
+        onmouseover="hover(this);"
+        onmouseout="unhover(this);"
+        width="100%"
+      />
+    </a>
+  </div>
+  <!-- Final del Banner -->
+
+  <!-- Breadcrumb -->
+  <div class="container-fluid">
+    <p>
+      <nav aria-label="breadcrumb" style="color: #00a4e1;font-size: 17px;">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="../../index.html">
+              <i class="fa-solid fa-house"></i> Inicio
+            </a>
+          </li>
+          <li class="breadcrumb-item"><a href="leccion-1.html">Descubre</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Partes del robot</li>
+        </ol>
+      </nav>
+    </p>
+  </div>
+  <!-- Final Breadcrumb -->
+
+  <h1
+    class="text-center mb-3 mq-h1-text"
+    style="font-size: 50px;"
+  >
+    <img src="../../static/img/icono_robot_azul.png" width="50px" class="mb-2">
+    Partes del robot
+  </h1>
+
+  <div class="container-fluid">
+    <div
+      class="row mb-3"
+      style="padding-right: 15px; padding-left: 10px;"
+    >
+      <!-- Left Column -->
+      <div class="col-3">
+        <a href="leccion-1.html">
+          <button type="button" class="btn btn-success text-start">
+            <b style="font-size: 25px;">Iniciemos</b>
+          </button>
+        </a>
+        <a href="leccion-1-adivinanzas.html">
+          <button type="button" class="btn btn-success text-start">
+            -----
+            <b>Adivina</b>
+          </button>
+        </a>
+        <a href="leccion-1-que-aprendimos.html">
+          <button type="button" class="btn btn-success text-start">
+            -----
+            <b>¿Qué aprendimos?</b>
+          </button>
+        </a>
+        <br>
+        <br>
+        <a href="leccion-1-robotica.html">
+          <button type="button" class="btn btn-success text-start">
+            <b style="font-size: 25px;">Robótica</b>
+          </button>
+        </a>
+        <a href="leccion-1-ejemplos-robotica.html">
+          <button type="button" class="btn btn-success text-start">
+            -----
+            <b>Ejemplos de robótica</b>
+          </button>
+        </a>
+        <a href="leccion-1-que-es-la-robotica.html">
+          <button type="button" class="btn btn-success text-start">
+            -----
+            <b>¿Qué es la robótica?</b>
+          </button>
+        </a>
+        <a href="leccion-1-partes-del-robot.html">
+          <button type="button" class="btn btn-success text-start active">
+            -----
+            <b>Partes del robot</b>
+          </button>
+        </a>
+        <br>
+        <br>
+        <a href="leccion-1-que-aprendimos-final.html">
+          <button type="button" class="btn btn-success text-start">
+            <b style="font-size: 25px;">¿Qué aprendimos?</b>
+          </button>
+        </a>
+      </div>
+      <!-- End Left Column -->
+
+      <!-- Right Column -->
+      <div
+        class="col-9"
+        style="
+          border: ridge 1px #00a4e1;
+          border-radius: 5px;
+        "
+      >
+        <div class="text-center mt-5 mb-4">
+          <video
+            controls
+            style="width: 85%; height: auto; border-radius: 15px;"
+            src="http://cursos.cenditel.gob.ve/files/2025/07/leccion-1-ruta-2-leccion-I-partes-robot-compressed.mp4"
+          >
+          </video>
+        </div>
+
+        <!-- Botones de cambio de lección -->
+        <div class="text-center" style="border: ridge 1px transparent;">
+          <a href="leccion-1-que-es-la-robotica.html">
+            <img
+              src="../../static/img/flechas/izq-azul.png"
+              width="40px"
+              class="mb-3 llave-inglesa img-rotate-180"
+              style="margin-right: 25px;"
+            >
+          </a>
+          <a href="leccion-1-que-aprendimos-final.html">
+            <img
+              src="../../static/img/flechas/der-azul.png"
+              width="40px"
+              class="mb-3 llave-inglesa img-rotate-180"
+              style="margin-left: 25px;"
+            >
+          </a>
+        </div>
+        <!-- Final de botones de cambio de lección -->
+      </div>
+      <!-- End Right Column -->
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="container-fluid" style="background: #00a4e1; padding: 5px;">
+    <div class="text-center img-zoom mb-3 mt-4">
+      <a href="http://www.cenditel.gob.ve/" target="_blank">
+        <img class="logo-brand-mq" src="../../static/img/logo-cenditel.png" width="7%" class="mb-3">
+        <br>
+        <b id="typewriter" style="font-size: 15px; color: #fff"></b>
+      </a>
+    </div>
+  </div>
+  <!-- Final del Footer -->
+
+  <script src="../../static/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function unhover(element) {
+      element.setAttribute('src', '../../static/img/banner.png');
+    }
+    function hover(element) {
+      element.setAttribute('src', '../../static/img/banner2.png');
+    }
+  </script>
+
+  <script>
+    const text = "Desarrollado por CENDITEL";
+    const typewriterElement = document.getElementById("typewriter");
+    let index = 0;
+    let deleting = false;
+
+    function typeEffect() {
+      // Mostrar o borrar caracteres
+      typewriterElement.textContent = text.substring(0, index);
+
+      if (!deleting) {
+        if (index < text.length) {
+          index++;
+        } else {
+          deleting = true;
+          setTimeout(typeEffect, 1000); // Pausa antes de borrar
+          return;
+        }
+      } else {
+        if (index > 0) {
+          index--;
+        } else {
+          deleting = false;
+        }
+      }
+
+      // Cambiar la velocidad dependiendo de si escribe o borra
+      const speed = deleting ? 50 : 100;
+      setTimeout(typeEffect, speed);
+    }
+
+    // Iniciar el efecto
+    typeEffect();
+  </script>
+
+  <script>
+    // Selecciona la barra de progreso
+    const progressBar = document.getElementById('progressBar');
+
+    // Escuchar el evento de scroll
+    window.addEventListener('scroll', () => {
+      // Altura total del documento
+      const scrollHeight = document.documentElement.scrollHeight;
+
+      // Altura visible de la ventana
+      const clientHeight = document.documentElement.clientHeight;
+
+      // Distancia desplazada desde la parte superior
+      const scrollTop = document.documentElement.scrollTop;
+
+      // Calcular el porcentaje de progreso
+      const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+
+      // Actualizar el ancho de la barra
+      progressBar.style.width = `${scrollPercentage}%`;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+/* Creamos el diseño del spinner y lo centramos en la página */
+.spinner-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fbbf00; /* Fondo gris oscuro con opacidad */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Asegura que el spinner esté en la parte superior */
+  opacity: 1;
+  transition: opacity 1s ease; /* Transición suave de opacidad */
+}
+
+/* Modificamos el tamaño de la imagen para que sea más grande */
+.spinner-img {
+  width: 100px;
+  height: 100px;
+  animation: spin 1s infinite linear; /* Agregamos la animación */
+}
+
+/* Pasos de la animación con keyframes */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Clase para detener la animación */
+.stop-spin {
+  animation-play-state: paused;
+}

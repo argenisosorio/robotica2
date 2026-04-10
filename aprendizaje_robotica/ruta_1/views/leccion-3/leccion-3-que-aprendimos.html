@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Curso - Aprendizaje en Robótica">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <link rel="icon" href="../../static/img/favicon.png">
+    <title>Curso - Aprendizaje en Robótica</title>
+    <link rel="stylesheet" href="../../static/css/loader_lec3.css" type="text/css"/>
+    <!-- Loader de carga script js -->
+    <script src="../../static/js/loader.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="../../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- font-awesome-6 -->
+    <link href="../../static/font-awesome-6/css/fontawesome.css" rel="stylesheet" />
+    <link href="../../static/font-awesome-6/css/all.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="../../static/css/theme.css" rel="stylesheet">
+    <style>
+      .list-group-item {
+        background-color: #fff !important;
+        border-color: #fff !important;
+      }
+      .list-group-item.active {
+        z-index: 2;
+        color: #fff;
+        background-color: #9ac31c !important;
+        border-color: #0d6efd;
+      }
+      .btn-success {
+        width: 100%;
+        background: #fff;
+        color: #9ac31c;
+        border-color: #9ac31c;
+      }
+      .btn-success.active {
+        color: #fff;
+        background-color: #9ac31c !important;
+        border-color: #9ac31c;
+      }
+      .btn-success:hover {
+        background: #9ac31c;
+        border-color: #fff;
+      }
+      /* Estilos generales para todos los tamaños de pantalla */
+      #my-img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Estilos generales */
+      .custom-audio {
+        width: 100%;
+        max-width: 400px; /* Ancho máximo para desktop */
+        margin: 1rem 0;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Cambiar colores (navegadores compatibles) */
+      .custom-audio::-webkit-media-controls-panel {
+        background: #f8f9fa;
+        border-radius: 10px;
+      }
+
+      .custom-audio::-webkit-media-controls-play-button,
+      .custom-audio::-webkit-media-controls-mute-button {
+        filter: brightness(0.8);
+      }
+
+      /* Media Query para móviles */
+      @media (max-width: 768px) {
+        .custom-audio {
+          max-width: 100%; /* Ocupa todo el ancho en móviles */
+          border-radius: 5px;
+        }
+      }
+
+      /* Dispositivos pequeños (teléfonos) */
+      @media (max-width: 576px) {
+        .llave-inglesa {
+          width: 150px;
+        }
+
+        .col-3 {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+
+        .col-9 {
+          width: 100%;
+        }
+
+        .btn-success img {
+          width: 15%;
+        }
+
+        h1 {
+          font-size: 30px;
+        }
+
+        .p-mq-m {
+          font-size: 15px !important;
+        }
+
+        .nina-cara-container-mq-m {
+          width: 70px;
+        }
+
+        .nina-cara-audio-container-mq-m {
+          margin-left: -50px;
+        }
+
+        #check-button {
+          width: 100% !important;
+        }
+
+        #reset-button {
+          margin-top: 10px;
+          width: 100% !important;
+        }
+
+        .modal-dialog {
+          max-width: 95vw;
+          margin: 10px auto;
+          margin-left: 10px;
+        }
+        .modal-content {
+          width: 100%;
+          box-sizing: border-box;
+        }
+        #modalImage {
+          width: 80% !important;
+          max-width: 250px;
+          height: auto;
+        }
+        #modalText {
+          font-size: 18px !important;
+        }
+      }
+
+      /* Dispositivos medianos (tabletas) */
+      @media (min-width: 577px) and (max-width: 768px) {
+        .llave-inglesa {
+          width: 150px;
+        }
+
+        .col-3 {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+
+        .col-9 {
+          width: 100%;
+        }
+
+        .btn-success img {
+          width: 15%;
+        }
+
+        h1 {
+          font-size: 30px;
+        }
+
+        .p-mq-m {
+          font-size: 15px !important;
+        }
+
+        .nina-cara-container-mq-m {
+          width: 70px;
+        }
+
+        .nina-cara-audio-container-mq-m {
+          margin-left: -50px;
+        }
+
+        #check-button {
+          width: 100% !important;
+        }
+
+        #reset-button {
+          margin-top: 10px;
+          width: 100% !important;
+        }
+
+        .modal-dialog {
+          max-width: 95vw;
+          margin: 10px auto;
+          margin-left: 10px;
+        }
+        .modal-content {
+          width: 100%;
+          box-sizing: border-box;
+        }
+        #modalImage {
+          width: 80% !important;
+          max-width: 250px;
+          height: auto;
+        }
+        #modalText {
+          font-size: 18px !important;
+        }
+      }
+
+      /* Dispositivos grandes (computadoras de escritorio) */
+      @media (min-width: 769px) {
+        .col-3 {
+          width: 25%;
+        }
+
+        .col-9 {
+          width: 75%;
+        }
+
+        .btn-success img {
+          width: 9%;
+        }
+
+        .btn-success {
+          padding: 10px;
+        }
+
+        .btn-danger {
+          padding: 10px;
+        }
+
+        h1 {
+          font-size: 50px;
+        }
+      }
+      #reset-button {
+        background-color: #e63946;
+        color: #fff;
+        border-color: #e63946;
+      }
+
+      #reset-button:hover {
+        background-color: #c9303d;
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+<body>
+  <!-- Mostrar la imagen como spinner de carga -->
+  <div class="spinner-container" id="spinnerContainer">
+    <!-- Cambiar el div con la clase "spinner" por una imagen -->
+    <img src="../../static/img/favicon.png" alt="" class="spinner-img">
+  </div>
+
+  <!-- Barra de progreso -->
+  <div id="progressBarVerde"></div>
+
+  <!-- Banner -->
+  <div class="container-fluidd">
+    <a href="../../index.html">
+      <img
+        id="my-img"
+        src="../../static/img/banner.png"
+        onmouseover="hover(this);"
+        onmouseout="unhover(this);"
+        width="100%"
+      />
+    </a>
+  </div>
+  <!-- Final del Banner -->
+
+  <!-- Breadcrumb -->
+  <div class="container-fluid">
+    <p>
+      <nav aria-label="breadcrumb" style="color: #9ac31c;font-size: 17px;">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="../../index.html">
+              <i class="fa-solid fa-house"></i> Inicio
+            </a>
+          </li>
+          <li class="breadcrumb-item"><a href="leccion-3.html">Aprende</a></li>
+          <li class="breadcrumb-item active" aria-current="page">¿Qué aprendimos?</li>
+        </ol>
+      </nav>
+    </p>
+  </div>
+  <!-- Final Breadcrumb -->
+
+  <h1
+    class="text-center mb-3 mq-h1-text"
+    style="font-size: 50px;"
+  >
+    <img src="../../static/img/icono_robot_verde.png" width="50px" class="mb-2">
+    ¿Qué aprendimos?
+  </h1>
+
+  <div class="container-fluid">
+    <div
+      class="row mb-3"
+      style="padding-right: 15px; padding-left: 10px;"
+    >
+      <!-- Left Column -->
+      <div class="col-3">
+        <a href="leccion-3.html">
+          <button type="button" class="btn btn-success text-start">
+            <b style="font-size: 25px;">Continuemos</b>
+          </button>
+        </a>
+        <a href="leccion-3-programacion.html">
+          <button type="button" class="btn btn-success text-start">
+            -----
+            <b>Programación</b>
+          </button>
+        </a>
+        <a href="leccion-3-como-funciona-la-programacion.html">
+          <button type="button" class="btn btn-success text-start">
+            -----
+            <b>¿Cómo funciona la programación?</b>
+          </button>
+        </a>
+        <a href="leccion-3-scratch.html">
+          <button type="button" class="btn btn-success text-start">
+            -----
+            <b>Scratch</b>
+          </button>
+        </a>
+        <br>
+        <br>
+        <a href="leccion-3-que-aprendimos.html">
+          <button type="button" class="btn btn-success text-start active">
+            <b style="font-size: 25px;">¿Qué aprendimos?</b>
+          </button>
+        </a>
+      </div>
+      <!-- End Left Column -->
+
+      <!-- Right Column -->
+      <div
+        class="col-9"
+        style="
+          border: ridge 1px #9ac31c;
+          border-radius: 5px;
+        "
+      >
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body d-flex flex-column align-items-center">
+                <img
+                  id="modalImage"
+                  alt="image"
+                  style="width: 50%; display: none;"
+                >
+                <hr>
+                <h2 class="text-center" id="modalText"></h2>
+                <span id="helpText"></span>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Final de Modal -->
+
+        <!-- Pregunta 1 -->
+        <div class="row">
+          <div class="col-8" style="border: ridge 1px transparent;">
+            <div style="padding: 20px; border: ridge 1px transparent;">
+              <p class="p-mq-m" style="font-size: 30px;">
+                1. Programar es dar instrucciones a la computadora en un lenguaje que ella entiende:
+              </p>
+              <div class="mb-3" style="font-size: 20px;">
+                <label>
+                  <input type="radio" name="pregunta_1" value="true" required> Verdadero
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="pregunta_1" value="false"> Falso
+                </label>
+                <div id="helpAnswer1_check" style="display: none;">✅</div>
+                <div id="helpAnswer1_x" style="display: none;">❌</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4" style="border: ridge 1px transparent;">
+            <div class="nina-cara-audio-container-mq-m">
+              <div class="mt-4">
+                <img
+                  class="nina-cara-container-mq-m"
+                  src="../../static/img/nina-cara.jpg"
+                  width="150px"
+                  class="mb-2"
+                >
+              </div>
+              <div class="audio-container">
+                <audio controls class="custom-audio">
+                  <source src="../../static/audio/leccion-3/prueba/1.mp3" type="audio/mpeg">
+                  Tu navegador no soporta el elemento de audio.
+                </audio>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Final Pregunta 1 -->
+
+        <hr>
+
+        <!-- Pregunta 2 -->
+        <div class="row">
+          <div class="col-8" style="border: ridge 1px transparent;">
+            <div style="padding: 20px; border: ridge 1px transparent;">
+              <p class="p-mq-m" style="font-size: 30px;">
+                2. Un algoritmo es una lista de instrucciones para que una computadora sepa qué hacer:
+              </p>
+              <div class="mb-3" style="font-size: 20px;">
+                <label>
+                  <input type="radio" name="pregunta_2" value="true"> Verdadero
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="pregunta_2" value="false"> Falso
+                </label>
+                <div id="helpAnswer2_check" style="display: none;">✅</div>
+                <div id="helpAnswer2_x" style="display: none;">❌</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4" style="border: ridge 1px transparent;">
+            <div class="nina-cara-audio-container-mq-m">
+              <div class="mt-4">
+                <img
+                  class="nina-cara-container-mq-m"
+                  src="../../static/img/nino-cara.jpg"
+                  width="150px"
+                  class="mb-2"
+                >
+              </div>
+              <div class="audio-container">
+                <audio controls class="custom-audio">
+                  <source src="../../static/audio/leccion-3/prueba/2.mp3" type="audio/mpeg">
+                  Tu navegador no soporta el elemento de audio.
+                </audio>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Final Pregunta 2 -->
+
+        <hr>
+
+        <!-- Pregunta 3 -->
+        <div class="row">
+          <div class="col-8" style="border: ridge 1px transparent;">
+            <div style="padding: 20px; border: ridge 1px transparent;">
+              <p class="p-mq-m" style="font-size: 30px;">3. Si estás cocinando siguiendo una receta, entonces estás siguiendo un:</p>
+              <div class="mb-3" style="font-size: 20px;">
+                <label>
+                  <input type="radio" name="pregunta_3" value="true"> Un videojuego
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="pregunta_3" value="false"> Un algoritmo
+                </label>
+                <div id="helpAnswer3_check" style="display: none;">✅</div>
+                <div id="helpAnswer3_x" style="display: none;">❌</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4" style="border: ridge 1px transparent;">
+            <div class="nina-cara-audio-container-mq-m">
+              <div class="mt-4">
+                <img
+                  class="nina-cara-container-mq-m"
+                  src="../../static/img/nina-cara.jpg"
+                  width="150px"
+                  class="mb-2"
+                >
+              </div>
+              <div class="audio-container">
+                <audio controls class="custom-audio">
+                  <source src="../../static/audio/leccion-3/prueba/3.mp3" type="audio/mpeg">
+                  Tu navegador no soporta el elemento de audio.
+                </audio>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Final Pregunta 3 -->
+
+        <hr>
+
+        <!-- Pregunta 4 -->
+        <div class="row">
+          <div class="col-8" style="border: ridge 1px transparent;">
+            <div style="padding: 20px; border: ridge 1px transparent;">
+              <p class="p-mq-m" style="font-size: 30px;">4. Si quieres cepillarte los dientes, el primer paso de tu algoritmo es:</p>
+              <div class="mb-3" style="font-size: 20px;">
+                <label>
+                  <input type="radio" name="pregunta_4" value="true"> Mirar televisión
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="pregunta_4" value="false"> Poner crema en el cepillo
+                </label>
+                <div id="helpAnswer4_check" style="display: none;">✅</div>
+                <div id="helpAnswer4_x" style="display: none;">❌</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4" style="border: ridge 1px transparent;">
+            <div class="nina-cara-audio-container-mq-m">
+              <div class="mt-4">
+                <img
+                  class="nina-cara-container-mq-m"
+                  src="../../static/img/nino-cara.jpg"
+                  width="150px"
+                  class="mb-2"
+                >
+              </div>
+              <div class="audio-container">
+                <audio controls class="custom-audio">
+                  <source src="../../static/audio/leccion-3/prueba/4.mp3" type="audio/mpeg">
+                  Tu navegador no soporta el elemento de audio.
+                </audio>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Final Pregunta 4 -->
+
+        <hr>
+
+        <!-- Pregunta 5 -->
+        <div class="row">
+          <div class="col-8" style="border: ridge 1px transparent;">
+            <div style="padding: 20px; border: ridge 1px transparent;">
+              <p class="p-mq-m" style="font-size: 30px;">5. Los colores de los bloques de Scratch indican lo que hace cada bloque:</p>
+              <div class="mb-3" style="font-size: 20px;">
+                <label>
+                  <input type="radio" name="pregunta_5" value="true"> Verdadero
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="pregunta_5" value="false"> Falso
+                </label>
+                <div id="helpAnswer5_check" style="display: none;">✅</div>
+                <div id="helpAnswer5_x" style="display: none;">❌</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4" style="border: ridge 1px transparent;">
+            <div class="nina-cara-audio-container-mq-m">
+              <div class="mt-4">
+                <img
+                  class="nina-cara-container-mq-m"
+                  src="../../static/img/nina-cara.jpg"
+                  width="150px"
+                  class="mb-2"
+                >
+              </div>
+              <div class="audio-container">
+                <audio controls class="custom-audio">
+                  <source src="../../static/audio/leccion-3/prueba/5.mp3" type="audio/mpeg">
+                  Tu navegador no soporta el elemento de audio.
+                </audio>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Final Pregunta 5 -->
+
+        <hr>
+
+        <!-- Botones del formulario -->
+        <div class="text-center mb-3">
+          <button
+            id="check-button"
+            type="button"
+            class="btn btn-success active"
+            onclick="checkAnswers()"
+            style="width: 15%;"
+          >
+            Verificar
+          </button>
+          <button
+            id="reset-button"
+            type="button"
+            class="btn btn-success"
+            onclick="resetRadios();"
+            style="width: 15%;"
+          >
+            <b>Reiniciar</b>
+          </button>
+        </div>
+        <!-- Final de Botones del formulario -->
+
+        <!-- Siguiente módulo -->
+        <div id="next-section" style="display: none;">
+          <br>
+          <div class="text-center mt-5 mb-5">
+            <a href="../leccion-4/leccion-4.html">
+              <img
+                src="../../static/img/Leccion-3/nina-next-4.png"
+                class="llave-inglesa"
+              >
+            </a>
+          </div>
+        </div>
+        <!-- Final de Siguiente módulo -->
+
+      </div>
+      <!-- End Right Column -->
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="container-fluid" style="background: #9ac31c; padding: 5px;">
+    <div class="text-center img-zoom mb-3 mt-4">
+      <a href="http://www.cenditel.gob.ve/" target="_blank">
+        <img class="logo-brand-mq" src="../../static/img/logo-cenditel.png" width="7%" class="mb-3">
+        <br>
+        <b id="typewriter" style="font-size: 15px; color: #fff"></b>
+      </a>
+    </div>
+  </div>
+  <!-- Final del Footer -->
+
+  <script src="../../static/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function unhover(element) {
+      element.setAttribute('src', '../../static/img/banner.png');
+    }
+    function hover(element) {
+      element.setAttribute('src', '../../static/img/banner2.png');
+    }
+  </script>
+
+  <script>
+    const text = "Desarrollado por CENDITEL";
+    const typewriterElement = document.getElementById("typewriter");
+    let index = 0;
+    let deleting = false;
+
+    function typeEffect() {
+      // Mostrar o borrar caracteres
+      typewriterElement.textContent = text.substring(0, index);
+
+      if (!deleting) {
+        if (index < text.length) {
+          index++;
+        } else {
+          deleting = true;
+          setTimeout(typeEffect, 1000); // Pausa antes de borrar
+          return;
+        }
+      } else {
+        if (index > 0) {
+          index--;
+        } else {
+          deleting = false;
+        }
+      }
+
+      // Cambiar la velocidad dependiendo de si escribe o borra
+      const speed = deleting ? 50 : 100;
+      setTimeout(typeEffect, speed);
+    }
+
+    // Iniciar el efecto
+    typeEffect();
+  </script>
+
+  <script>
+    // Selecciona la barra de progreso
+    const progressBarVerde = document.getElementById('progressBarVerde');
+
+    // Escuchar el evento de scroll
+    window.addEventListener('scroll', () => {
+    // Altura total del documento
+    const scrollHeight = document.documentElement.scrollHeight;
+
+    // Altura visible de la ventana
+    const clientHeight = document.documentElement.clientHeight;
+
+    // Distancia desplazada desde la parte superior
+    const scrollTop = document.documentElement.scrollTop;
+
+    // Calcular el porcentaje de progreso
+    const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+
+    // Actualizar el ancho de la barra
+    progressBarVerde.style.width = `${scrollPercentage}%`;
+    });
+  </script>
+
+  <script>
+    function checkAnswers() {
+      // Obtener las respuestas seleccionadas
+      const pregunta_1 = document.querySelector('input[name="pregunta_1"]:checked');
+      const pregunta_2 = document.querySelector('input[name="pregunta_2"]:checked');
+      const pregunta_3 = document.querySelector('input[name="pregunta_3"]:checked');
+      const pregunta_4 = document.querySelector('input[name="pregunta_4"]:checked');
+      const pregunta_5 = document.querySelector('input[name="pregunta_5"]:checked');
+
+      // Verificar que todas las preguntas tengan respuesta
+      if (
+        !pregunta_1 || !pregunta_2 ||
+        !pregunta_3 || !pregunta_4 ||
+        !pregunta_5
+      ) {
+        openModal(
+          "../../static/img/favicon.png",
+          'Por favor responde todas las preguntas',
+          '',
+          'block'
+        );
+        // Ocultar la sección siguiente.
+        document.getElementById('next-section').style.display = 'none';
+        return;
+      }
+
+      // Convertir valores a booleanos
+      const respuesta1 = pregunta_1.value === "true";
+      const respuesta2 = pregunta_2.value === "true";
+      const respuesta3 = pregunta_3.value === "true";
+      const respuesta4 = pregunta_4.value === "true";
+      const respuesta5 = pregunta_5.value === "true";
+
+      // Respuestas correctas
+      const correcto1 = true;
+      const correcto2 = true;
+      const correcto3 = false;
+      const correcto4 = false;
+      const correcto5 = true;
+
+      // Verificar respuestas
+      if (
+        respuesta1 === correcto1 &&
+        respuesta2 === correcto2 &&
+        respuesta3 === correcto3 &&
+        respuesta4 === correcto4 &&
+        respuesta5 === correcto5
+      ){
+        openModal(
+          "../../static/img/acierto.png",
+          '✅ ¡Perfecto! todas las respuestas son correctas',
+          '',
+          'block'
+        );
+        // Mostrar la sección siguiente
+        document.getElementById('next-section').style.display = 'block';
+      } else {
+        let mensaje = '';
+
+        if (respuesta1 !== correcto1) {
+          mensaje += '💡 Pista 1: Programar es dar instrucciones a la computadora en un lenguaje que ella entiende.<br><br>';
+        }
+        if (respuesta2 !== correcto2) {
+          mensaje += '💡 Pista 2: Un algoritmo es una lista de instrucciones.<br><br>';
+        }
+        if (respuesta3 !== correcto3) {
+          mensaje += '💡 Pista 3: Una receta es un algoritmo.<br><br>';
+        }
+        if (respuesta4 !== correcto4) {
+          mensaje += '💡 Pista 4: El primer paso para cepillarte los dientes es poner crema en el cepillo.<br><br>';
+        }
+        if (respuesta5 !== correcto5) {
+          mensaje += '💡 Pista 5: Los colores de los bloques de Scratch indican su función.';
+        }
+
+        openModal(
+          "../../static/img/favicon.png",
+          '❌ Algunas respuestas son incorrectas:',
+          mensaje,
+          'block'
+        );
+      }
+    }
+
+    /* Desmarca todos los radios del formulario */
+    function resetRadios() {
+      document.querySelectorAll('input[type="radio"]').forEach(radio => {
+        radio.checked = false;
+      });
+      // Ocultar la sección siguiente.
+      document.getElementById('next-section').style.display = 'none';
+      // Ocultar los íconos de ayuda.
+      document.getElementById('helpAnswer1_check').style.display = 'none';
+      document.getElementById('helpAnswer1_x').style.display = 'none';
+      document.getElementById('helpAnswer2_check').style.display = 'none';
+      document.getElementById('helpAnswer2_x').style.display = 'none';
+      document.getElementById('helpAnswer3_check').style.display = 'none';
+      document.getElementById('helpAnswer3_x').style.display = 'none';
+      document.getElementById('helpAnswer4_check').style.display = 'none';
+      document.getElementById('helpAnswer4_x').style.display = 'none';
+      document.getElementById('helpAnswer5_check').style.display = 'none';
+      document.getElementById('helpAnswer5_x').style.display = 'none';
+    }
+
+    /* Función para abrir el modal */
+    function openModal(image,text,helpText,display){
+      // Imagen para el modal si no se responde alguna pregunta.
+      imgSrc = image;
+
+      // Mostrar el modal con la imagen.
+      const modalImageElement = document.getElementById('modalImage');
+
+      // Cambiar la imagen del modal
+      modalImageElement.src = imgSrc;
+
+      document.getElementById('modalText').textContent = text;
+      document.getElementById('helpText').innerHTML = helpText;
+      document.getElementById('modalImage').style.display = display;
+
+      var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+      myModal.show();
+      return;
+    }
+
+    // Mostrar el check si la respuesta es Verdadero en la pregunta 1
+    document.querySelectorAll('input[name="pregunta_1"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        const check = document.getElementById('helpAnswer1_check');
+        const x = document.getElementById('helpAnswer1_x');
+        if (this.value === "true" && this.checked) {
+          check.style.display = 'block';
+          x.style.display = 'none';
+        } else {
+          check.style.display = 'none';
+          x.style.display = 'block';
+        }
+      });
+    });
+
+    // Mostrar el check si la respuesta es Verdadero en la pregunta 2
+    document.querySelectorAll('input[name="pregunta_2"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        const check = document.getElementById('helpAnswer2_check');
+        const x = document.getElementById('helpAnswer2_x');
+        if (this.value === "true" && this.checked) {
+          check.style.display = 'block';
+          x.style.display = 'none';
+        } else {
+          check.style.display = 'none';
+          x.style.display = 'block';
+        }
+      });
+    });
+
+    // Mostrar el check si la respuesta es Verdadero en la pregunta 3
+    document.querySelectorAll('input[name="pregunta_3"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        const check = document.getElementById('helpAnswer3_check');
+        const x = document.getElementById('helpAnswer3_x');
+        if (this.value === "true" && this.checked) {
+          check.style.display = 'none';
+          x.style.display = 'block';
+        } else {
+          check.style.display = 'block';
+          x.style.display = 'none';
+        }
+      });
+    });
+
+    // Mostrar el check si la respuesta es Verdadero en la pregunta 4
+    document.querySelectorAll('input[name="pregunta_4"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        const check = document.getElementById('helpAnswer4_check');
+        const x = document.getElementById('helpAnswer4_x');
+        if (this.value === "true" && this.checked) {
+          check.style.display = 'none';
+          x.style.display = 'block';
+        } else {
+          check.style.display = 'block';
+          x.style.display = 'none';
+        }
+      });
+    });
+
+    // Mostrar el check si la respuesta es Verdadero en la pregunta 5
+    document.querySelectorAll('input[name="pregunta_5"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        const check = document.getElementById('helpAnswer5_check');
+        const x = document.getElementById('helpAnswer5_x');
+        if (this.value === "true" && this.checked) {
+          check.style.display = 'block';
+          x.style.display = 'none';
+        } else {
+          check.style.display = 'none';
+          x.style.display = 'block';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

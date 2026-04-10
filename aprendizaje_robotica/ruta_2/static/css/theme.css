@@ -1,0 +1,200 @@
+body {
+  cursor: url("../img/cursor.png"), auto;
+}
+
+b#typewriter {
+  min-height: 24px;
+  display: block;
+}
+
+.logo-brand-mq {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.leccion-1 {
+  background: url(../img/Leccion-1/leccion-1-background.png) no-repeat center center;
+  background-size: cover;
+}
+
+.leccion-2 {
+  background: url(../img/Leccion-2/leccion-2-background.png) no-repeat center center;
+  background-size: cover;
+}
+
+.leccion-3 {
+  background: url(../img/Leccion-3/leccion-3-background.png) no-repeat center center;
+  background-size: cover;
+}
+
+.leccion-4 {
+  background: url(../img/Leccion-4/leccion-4-background.png) no-repeat center center;
+  background-size: cover;
+}
+
+.img-rotate:hover {
+  transform: rotate(360deg);
+  -webkit-transform: rotate(360deg); /* Opcional para navegadores antiguos */
+  -moz-transform: rotate(360deg); /* Opcional para navegadores antiguos */
+  -o-transform: rotate(360deg); /* Opcional para navegadores antiguos */
+  -ms-transform: rotate(360deg); /* Opcional para navegadores antiguos */
+  transition: transform 1s ease;
+  filter: contrast(120%);
+}
+
+a {
+  text-decoration: none;
+  color: inherit; /* Usa este valor si quieres que el enlace tome el color del elemento padre */
+}
+
+a:hover {
+  color: #000000;
+  cursor: url("../img/cursor.png"), auto;
+}
+
+.btn:hover {
+  cursor: url("../img/cursor.png"), auto;
+}
+
+.img-zoom {
+  transform:scale(1);
+  -ms-transform:scale(1);
+  -moz-transform:scale(1);
+  -webkit-transform:scale(1);
+  -o-transform:scale(1);
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+}        
+
+.img-zoom:hover {
+  transform:scale(1.1);
+  -ms-transform:scale(1.1);
+  -moz-transform:scale(1.1);
+  -webkit-transform:scale(1.1);
+  -o-transform:scale(1.1);
+}
+
+.img-zoom-max {
+  transform:scale(1);
+  -ms-transform:scale(1);
+  -moz-transform:scale(1);
+  -webkit-transform:scale(1);
+  -o-transform:scale(1);
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+}
+
+.img-zoom-max:hover {
+  transform:scale(1.5);
+  -ms-transform:scale(1.5);
+  -moz-transform:scale(1.5);
+  -webkit-transform:scale(1.5);
+  -o-transform:scale(1.5);
+}
+
+.banner-container {
+  position: relative;
+}
+
+.banner-hover-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  border-radius: 25px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.banner-container a:hover .banner-hover-img {
+  display: block;
+}
+
+.banner-container a:hover .banner-img {
+  display: none;
+}
+
+.screwdriver-cursor:hover {
+  cursor: url("../img/cursor.png"), auto;
+}
+
+/* Barra de progreso Azul */
+#progressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px; /* Altura de la barra */
+  background-color: #00a4e1; /* Color de la barra */
+  width: 0%; /* Ancho inicial */
+  z-index: 1000; /* Aparece encima de todo */
+}
+
+/* Barra de progreso Rosada */
+#progressBarRosada {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px; /* Altura de la barra */
+  background-color: #d26da1; /* Color de la barra */
+  width: 0%; /* Ancho inicial */
+  z-index: 1000; /* Aparece encima de todo */
+}
+
+/* Barra de progreso Verde */
+#progressBarVerde {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px; /* Altura de la barra */
+  background-color: #9ac31c; /* Color de la barra */
+  width: 0%; /* Ancho inicial */
+  z-index: 1000; /* Aparece encima de todo */
+}
+
+/* Barra de progreso Amarilla */
+#progressBarAmarilla {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px; /* Altura de la barra */
+  background-color: #fbbf00; /* Color de la barra */
+  width: 0%; /* Ancho inicial */
+  z-index: 1000; /* Aparece encima de todo. */
+}
+
+.llave-inglesa {
+  cursor: url("../img/cursor-llave-inglesa.png"), auto;
+}
+
+.img-rotate-180:hover {
+  transform: rotate(360deg);
+  -webkit-transform: rotate(360deg); /* Opcional para navegadores antiguos */
+  -moz-transform: rotate(360deg); /* Opcional para navegadores antiguos */
+  -o-transform: rotate(360deg); /* Opcional para navegadores antiguos */
+  -ms-transform: rotate(360deg); /* Opcional para navegadores antiguos */
+  transition: transform 1s ease;
+  filter: contrast(120%);
+}
+
+/* Dispositivos pequeños (teléfonos) */
+@media (max-width: 576px) {
+  .mq-h1-text {
+    font-size: 25px !important;
+  }
+
+  .logo-brand-mq {
+    width: 80px;
+    margin-bottom: 10px;
+  }
+}
+
+/* Dispositivos medianos (tabletas) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .mq-h1-text {
+    font-size: 25px !important;
+  }
+}

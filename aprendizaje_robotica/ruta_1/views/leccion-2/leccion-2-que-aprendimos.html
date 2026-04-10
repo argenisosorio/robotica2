@@ -1,0 +1,973 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Curso - Aprendizaje en Robótica">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <link rel="icon" href="../../static/img/favicon.png">
+    <title>Curso - Aprendizaje en Robótica</title>
+    <link rel="stylesheet" href="../../static/css/loader_lec2.css" type="text/css"/>
+    <!-- Loader de carga script js -->
+    <script src="../../static/js/loader.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="../../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- font-awesome-6 -->
+    <link href="../../static/font-awesome-6/css/fontawesome.css" rel="stylesheet" />
+    <link href="../../static/font-awesome-6/css/all.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="../../static/css/theme.css" rel="stylesheet">
+    <style>
+      /* Estilos generales */
+      .custom-audio {
+        width: 100%;
+        max-width: 400px; /* Ancho máximo para desktop */
+        margin: 1rem 0;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Cambiar colores (navegadores compatibles) */
+      .custom-audio::-webkit-media-controls-panel {
+        background: #f8f9fa;
+        border-radius: 10px;
+      }
+
+      .custom-audio::-webkit-media-controls-play-button,
+      .custom-audio::-webkit-media-controls-mute-button {
+        filter: brightness(0.8);
+      }
+
+      /* Media Query para móviles */
+      @media (max-width: 768px) {
+        .custom-audio {
+          max-width: 100%; /* Ocupa todo el ancho en móviles */
+          border-radius: 5px;
+        }
+      }
+
+      .list-group-item {
+        background-color: #fff !important;
+        border-color: #fff !important;
+      }
+      .list-group-item.active {
+        z-index: 2;
+        color: #fff;
+        background-color: #d26da1 !important;
+        border-color: #0d6efd;
+      }
+      .btn-success {
+        width: 100%;
+        background: #fff;
+        color: #d26da1;
+        border-color: #d26da1;
+      }
+      .btn-success.active {
+        color: #fff;
+        background-color: #d26da1 !important;
+        border-color: #d26da1;
+      }
+      .btn-success:hover {
+        background: #d26da1;
+        border-color: #fff;
+      }
+      /* Estilos generales para todos los tamaños de pantalla */
+      #my-img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Dispositivos pequeños (teléfonos) */
+      @media (max-width: 576px) {
+        .col-3 {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+
+        .col-9-mq-m {
+          width: 100%;
+          border: ridge 1px #d26da1 !important;
+        }
+
+        .row-mq-m {
+          border: ridge 1px transparent !important;
+          width: 200%;
+          margin-left: 0px !important;
+          margin-top: -30px !important;
+          display: block;
+          margin-bottom: 10px;
+        }
+
+        .col-6 {
+          margin-bottom: 10px;
+        }
+
+        .btn-success img {
+          width: 15%;
+        }
+
+        h1 {
+          font-size: 30px;
+        }
+
+        .row-puzzle-mq-m {
+          border: ridge 1px transparent !important;
+          margin-top: -50px;
+          display: block;
+        }
+
+        .col-6-puzzle-mq-m {
+          border: ridge 1px transparent !important;
+          width: 100%;
+        }
+
+        .draggable-image {
+          width: 70px !important;
+          border: ridge 1px gray !important;
+          border-radius: 5px;
+        }
+
+        .col-6-puzzle-der-mq-m {
+          border: ridge 1px transparent !important;
+          width: 100%;
+          margin-left: 100px;
+        }
+
+        .table-mq-m {
+          border: ridge 1px transparent !important;
+        }
+        .table-mq-m tr td div .drop-zone {
+          width: 70px;
+          height: 70px;
+        }
+
+        .table-tr-mq-m-1 {
+          border: ridge 1px transparent !important;
+        }
+
+        .table-tr-mq-m-2 {
+          border: ridge 1px transparent !important;
+        }
+
+        .table-tr-mq-m-3 {
+          border: ridge 1px transparent !important;
+        }
+
+        .table-tr-mq-m-4 {
+          border: ridge 1px transparent !important;
+        }
+
+        .td-mq-m {
+          border: ridge 1px gray !important;
+        }
+
+        .drop-zone {
+          border: ridge 1px transparent !important;
+        }
+
+        #next-section {
+          border: ridge 1px transparent !important;
+          margin-top: -75px;
+        }
+
+        .llave-inglesa {
+          width: 150px;
+        }
+
+        #check-button {
+          width: 100%;
+        }
+
+        #reset-button {
+          width: 100%;
+          background-color: #e63946;
+          color: #fff;
+          border-color: #e63946;
+        }
+
+        #reset-button:hover {
+          width: 100%;
+          background-color: #c9303d;
+          transform: translateY(-2px);
+        }
+      }
+
+      /* Dispositivos medianos (tabletas) */
+      @media (min-width: 577px) and (max-width: 768px) {
+        .col-3 {
+          width: 40%;
+        }
+
+        .col-9 {
+          width: 60%;
+        }
+
+        .btn-success img {
+          width: 12%;
+        }
+
+        .row-mq-m {
+          border: ridge 1px transparent !important;
+          width: 200%;
+          margin-left: 0px !important;
+          margin-top: -30px !important;
+          display: block;
+          margin-bottom: 10px;
+        }
+
+        .col-6 {
+          /*border: ridge 1px blue !important;*/
+          margin-bottom: 10px;
+        }
+
+        .btn-success img {
+          width: 15%;
+        }
+
+        h1 {
+          font-size: 30px;
+        }
+
+        .row-puzzle-mq-m {
+          border: ridge 1px transparent !important;
+          margin-top: -50px;
+          display: block;
+        }
+
+        .col-6-puzzle-mq-m {
+          border: ridge 1px transparent !important;
+          width: 100%;
+        }
+
+        .draggable-image {
+          width: 70px !important;
+          border: ridge 1px gray !important;
+          border-radius: 5px;
+        }
+
+        .col-6-puzzle-der-mq-m {
+          border: ridge 1px transparent !important;
+          width: 100%;
+          margin-left: 100px;
+        }
+
+        .table-mq-m {
+          border: ridge 1px transparent !important;
+        }
+        .table-mq-m tr td div .drop-zone {
+          width: 70px;
+          height: 70px;
+        }
+
+        .table-tr-mq-m-1 {
+          border: ridge 1px transparent !important;
+        }
+
+        .table-tr-mq-m-2 {
+          border: ridge 1px transparent !important;
+        }
+
+        .table-tr-mq-m-3 {
+          border: ridge 1px transparent !important;
+        }
+
+        .table-tr-mq-m-4 {
+          border: ridge 1px transparent !important;
+        }
+
+        .td-mq-m {
+          border: ridge 1px gray !important;
+        }
+
+        .drop-zone {
+          border: ridge 1px transparent !important;
+        }
+
+        #next-section {
+          border: ridge 1px transparent !important;
+          margin-top: -75px;
+        }
+
+        .llave-inglesa {
+          width: 150px;
+        }
+
+        #check-button {
+          width: 90%;
+          /*border: ridge 1px red !important;*/
+        }
+
+        #reset-button {
+          width: 90%;
+          background-color: #e63946;
+          color: #fff;
+          border-color: #e63946;
+        }
+
+        #reset-button:hover {
+          width: 90%;
+          background-color: #c9303d;
+          transform: translateY(-2px);
+        }
+      }
+
+      /* Tablet 800x1280 - Orientación vertical */
+      @media (min-width: 800px) and (max-width: 1280px) and (orientation: portrait) {
+        .botones {
+          border: ridge 1px transparent !important;
+        }
+
+        #check-button {
+          border: ridge 1px transparent !important;
+          margin-left: -70px;
+        }
+
+        #reset-button {
+          border: ridge 1px transparent !important;
+        }
+      }
+
+      /* Dispositivos grandes (computadoras de escritorio) */
+      @media (min-width: 769px) {
+        .col-3 {
+          width: 25%;
+        }
+
+        .col-9 {
+          width: 75%;
+        }
+
+        .btn-success img {
+          width: 9%;
+        }
+
+        .btn-success {
+          padding: 10px;
+        }
+
+        h1 {
+          font-size: 50px;
+        }
+
+        /* Estilos del puzzle */
+        .puzzle-columns {
+          display: flex;
+          justify-content: center;      /* Centra horizontalmente ambos grupos */
+          align-items: flex-start;      /* Alinea arriba ambas columnas */
+          margin: 0 auto;               /* Centra el contenedor */
+          width: 70%;                   /* Ajusta el ancho según prefieras */
+        }
+
+        .image-column, .drop-column {
+          flex: 0 0 50%;                /* Ambas columnas ocupan el mismo ancho */
+          display: flex;
+          flex-direction: column;
+          align-items: center;          /* Centra el contenido de cada columna */
+        }
+
+        h2 {
+          color: #34495e;
+          margin-top: 0;
+          margin-bottom: 20px;
+          border-bottom: 2px solid #a8dadc;
+          padding-bottom: 10px;
+          width: 100%;
+        }
+
+        .silueta {
+          width: 100px !important;
+        }
+
+        .cabeza {
+          width: 100px !important;
+        }
+
+        .ojos {
+          width: 100px !important;
+        }
+
+        .boca {
+          width: 100px !important;
+        }
+
+        .articulaciones {
+          width: 100px !important;
+        }
+
+        .oreja {
+          width: 100px !important;
+        }
+
+        .cintura {
+          width: 100px !important;
+        }
+
+        .draggable-image {
+          width: 150px; /* Adjust image size as needed */
+          height: auto;
+          border-radius: 8px;
+          border: ridge 1px gray;
+          cursor: grab;
+          transition: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .draggable-image:hover {
+          transform: translateY(-3px);
+          border-color: #457b9d;
+        }
+
+        .draggable-image.dragging {
+          opacity: 0.5;
+          border-style: dashed;
+          border-color: #2a9d8f;
+        }
+
+        .drop-zone {
+          width: 100px; /* Adjust drop zone width to match your images */
+          height: 100px; /* Adjust drop zone height for puzzle pieces */
+          border: 2px solid transparent;
+          border-radius: 5px;
+          transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .drop-zone.drag-over {
+          background-color: #e0f7fa; /* Highlight on drag over */
+          border-color: #457b9d;
+        }
+
+        .drop-zone.correct {
+          border-color: #28a745; /* Green for correct placement */
+          background-color: #d4edda;
+        }
+
+        .drop-zone.incorrect {
+          border-color: #dc3545; /* Red for incorrect placement */
+          background-color: #f8d7da;
+        }
+
+        /* Buttons and Message */
+        button {
+          padding: 12px 25px;
+          font-size: 1em;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          margin: 0 10px;
+          transition: background-color 0.3s ease, transform 0.2s ease;
+          font-weight: bold;
+        }
+
+        #check-button {
+          width: 200px;
+          background-color: #d26da1;
+          color: #FFFFFF;
+        }
+
+        #reset-button {
+          width: 200px;
+          background-color: #e63946;
+          color: #fff;
+          border-color: #e63946;
+        }
+
+        #reset-button:hover {
+          background-color: #c9303d;
+          transform: translateY(-2px);
+        }
+
+        #message {
+          margin-top: 25px;
+          font-size: 1.2em;
+          font-weight: bold;
+          color: #457b9d;
+        }
+
+        .celd {
+          background-repeat: no-repeat;
+          background-size: 100px 100px;
+          background-position: left;
+        }
+      }
+    </style>
+  </head>
+<body>
+  <!-- Mostrar la imagen como spinner de carga -->
+  <div class="spinner-container" id="spinnerContainer">
+    <!-- Cambiar el div con la clase "spinner" por una imagen -->
+    <img src="../../static/img/favicon.png" alt="" class="spinner-img">
+  </div>
+
+  <!-- Barra de progreso -->
+  <div id="progressBarRosada"></div>
+
+  <!-- Banner -->
+  <div>
+    <a href="../../index.html">
+      <img
+        id="my-img"
+        src="../../static/img/banner.png"
+        onmouseover="hover(this);"
+        onmouseout="unhover(this);"
+        width="100%"
+      />
+    </a>
+  </div>
+  <!-- Final del Banner -->
+
+  <!-- Breadcrumb -->
+  <div class="container-fluid">
+    <p>
+      <nav aria-label="breadcrumb" style="color: #d26da1;font-size: 17px;">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="../../index.html">
+              <i class="fa-solid fa-house"></i> Inicio
+            </a>
+          </li>
+          <li class="breadcrumb-item"><a href="leccion-2.html">Conoce</a></li>
+          <li class="breadcrumb-item active" aria-current="page">¿Qué aprendimos?</li>
+        </ol>
+      </nav>
+    </p>
+  </div>
+  <!-- Final Breadcrumb -->
+
+  <h1
+    class="text-center mb-3 mq-h1-text"
+    style="font-size: 50px;"
+  >
+    <img src="../../static/img/icono_robot_rosa.png" width="50px" class="mb-2">
+    ¿Qué aprendimos?
+  </h1>
+
+  <div class="container-fluid">
+    <div
+      class="row mb-3"
+      style="padding-right: 15px; padding-left: 10px;"
+    >
+      <!-- Left Column -->
+      <div class="col-3">
+        <a href="leccion-2.html">
+          <button type="button" class="btn btn-success text-start">
+            <b style="font-size: 25px;">Continuemos</b>
+          </button>
+        </a>
+        <a href="leccion-2-la-robotica.html">
+          <button type="button" class="btn btn-success text-start">
+            -----
+            <b>La Robótica</b>
+          </button>
+        </a>
+        <a href="leccion-2-areas-de-la-robotica.html">
+          <button type="button" class="btn btn-success text-start">
+            -----
+            <b>Áreas de la Robótica</b>
+          </button>
+        </a>
+        <a href="leccion-2-estructura-mecanica-robots.html">
+          <button type="button" class="btn btn-success text-start">
+            -----
+            <b>Estructura mecánica de los robots</b>
+          </button>
+        </a>
+        <a href="leccion-2-que-aprendimos.html">
+          <button type="button" class="btn btn-success text-start active">
+            -----
+            <b>¿Qué aprendimos?</b>
+          </button>
+        </a>
+      </div>
+      <!-- End Left Column -->
+
+      <!-- Right Column -->
+      <div
+        class="col-9 col-9-mq-m"
+        style="
+          border: ridge 1px #d26da1;
+          border-radius: 5px;
+        "
+      >
+        <br>
+        <!-- Instrucciones -->
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <h4 class="text-center">
+              🔍 Arma el Robot
+            </h4>
+            <div class="text-center">
+              Arrastra cada pieza de la izquierda y colócala en el espacio
+              correspondiente de la derecha para armar el Robot.
+            </div>
+            <div class="text-center">
+              ✅ Cuando termines, haz clic en Verificar para saber cómo lo hiciste.
+              <br>
+              🔄 Si te equivocaste, puedes pulsar Reiniciar y volver a intentarlo.
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div>
+              <div>
+                <img src="../../static/img/nina-cara.jpg" width="100px" class="mb-2">
+              </div>
+              <div class="audio-container">
+                <audio controls class="custom-audio">
+                  <source
+                    src="../../static/audio/leccion-2/ruta_1-leccion_2-prueba.mp3"
+                    type="audio/mpeg"
+                  >
+                  Tu navegador no soporta el elemento de audio.
+                </audio>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Final de Instrucciones -->
+        <br>
+        <div class="row" style="border: ridge 1px transparent;">
+          <div class="col-12 col-md-6 col-6-puzzle-mq-m text-center">
+              <!-- 6 -->
+              <img
+                src="../../static/img/Leccion-2/test/col-izq/6.png"
+                alt="Puzzle Pieza 6"
+                class="draggable-image oreja mb-2"
+                draggable="true"
+                data-id="6"
+                style="width: 100px;"
+              >
+
+              <!-- 8 -->
+              <img
+                src="../../static/img/Leccion-2/test/col-izq/8.png"
+                alt="Puzzle Pieza 7"
+                class="draggable-image silueta mb-2"
+                draggable="true"
+                data-id="8"
+                style="width: 100px;"
+              >
+
+              <!-- 2 -->
+              <img
+                src="../../static/img/Leccion-2/test/col-izq/2.png"
+                alt="Puzzle Pieza 2"
+                class="draggable-image boca mb-2"
+                draggable="true"
+                data-id="2"
+                style="width: 100px;"
+              >
+
+              <!-- 4 -->
+              <img
+                src="../../static/img/Leccion-2/test/col-izq/4.png"
+                alt="Puzzle Pieza 4"
+                class="draggable-image cintura mb-2"
+                draggable="true"
+                data-id="4"
+                style="width: 100px;"
+              >
+
+              <!-- 5 -->
+              <img
+                src="../../static/img/Leccion-2/test/col-izq/5.png"
+                alt="Puzzle Pieza 5"
+                class="draggable-image ojos mb-2"
+                draggable="true"
+                data-id="5"
+                style="width: 100px;"
+              >
+
+              <!-- 1 -->
+              <img
+                src="../../static/img/Leccion-2/test/col-izq/1.png"
+                alt="Puzzle Pieza 1"
+                class="draggable-image articulaciones mb-2"
+                draggable="true"
+                data-id="1"
+                style="width: 100px;"
+              >
+
+              <!-- 3 -->
+              <img
+                src="../../static/img/Leccion-2/test/col-izq/3.png"
+                alt="Puzzle Pieza 3"
+                class="draggable-image cabeza mb-2"
+                draggable="true"
+                data-id="3"
+                style="width: 100px;"
+              >
+
+              <!-- 7 -->
+              <img
+                src="../../static/img/Leccion-2/test/col-izq/7.png"
+                alt="Puzzle Pieza 7"
+                class="draggable-image silueta mb-2"
+                draggable="true"
+                data-id="7"
+                style="width: 100px;"
+              >
+          </div>
+
+          <div
+            class="col-12 col-md-6 col-6-puzzle-der-mq-m"
+            style="border: ridge 1px transparent;"
+          >
+            <table class="table-mq-m" border="1px" cellpadding="0px" cellspacing="0px">
+              <tr class="table-tr-mq-m-1">
+                <!-- Celda 1-->
+                <td class="td-mq-m">
+                  <div
+                    class="celd"
+                    style="
+                      background-image: url('../../static/img/Leccion-2/test/col-der/1.png');
+                    "
+                  >
+                    <div data-id="1" class="drop-zone"></div>
+                  </div>
+                </td>
+                <!-- Final Celda 1-->
+
+                <!-- Celda 2 -->
+                <td class="td-mq-m">
+                  <div
+                    class="celd"
+                    style="
+                      background-image: url('../../static/img/Leccion-2/test/col-der/2.png');
+                    "
+                  >
+                    <div class="drop-zone" data-id="2"></div>
+                  </div>
+                </td>
+                <!-- Final Celda 2 -->
+              </tr>
+
+              <tr class="table-tr-mq-m-2">
+                <!-- Celda 3 -->
+                <td class="td-mq-m">
+                  <div
+                    class="celd"
+                    style="
+                      background-image: url('../../static/img/Leccion-2/test/col-der/3.png');
+                    "
+                  >
+                    <div class="drop-zone" data-id="3"></div>
+                  </div>
+                </td>
+                <!-- Final Celda 3 -->
+
+                <!-- Celda 4 -->
+                <td class="td-mq-m">
+                  <div
+                    class="celd"
+                    style="
+                      background-image: url('../../static/img/Leccion-2/test/col-der/4.png');
+                    "
+                  >
+                    <div class="drop-zone" data-id="4"></div>
+                  </div>
+                </td>
+                <!-- Final Celda 4 -->
+              </tr>
+
+              <tr class="table-tr-mq-m-3">
+                <!-- Celda 5 -->
+                <td class="td-mq-m">
+                  <div
+                    class="celd"
+                    style="
+                      background-image: url('../../static/img/Leccion-2/test/col-der/5.png');
+                    "
+                  >
+                    <div class="drop-zone" data-id="5"></div>
+                  </div>
+                </td>
+                <!-- Final Celda 5 -->
+
+                <!-- Celda 6 -->
+                <td class="td-mq-m">
+                  <div
+                    class="celd"
+                    style="
+                      background-image: url('../../static/img/Leccion-2/test/col-der/6.png');
+                    "
+                  >
+                    <div class="drop-zone" data-id="6"></div>
+                  </div>
+                </td>
+                <!-- Final Celda 6 -->
+              </tr>
+
+              <tr class="table-tr-mq-m-4">
+                <!-- Celda 7 -->
+                <td class="td-mq-m">
+                  <div
+                    class="celd"
+                    style="
+                      background-image: url('../../static/img/Leccion-2/test/col-der/7.png');
+                    "
+                  >
+                    <div class="drop-zone" data-id="7"></div>
+                  </div>
+                </td>
+                <!-- Final Celda 7 -->
+
+                <!-- Celda 8 -->
+                <td class="td-mq-m">
+                  <div
+                    class="celd"
+                    style="
+                      background-image: url('../../static/img/Leccion-2/test/col-der/8.png');
+                    "
+                  >
+                    <div class="drop-zone" data-id="8"></div>
+                  </div>
+                </td>
+                <!-- Final Celda 8 -->
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <br>
+        <br>
+
+        <p
+          id="message"
+          class="text-center"
+          style="
+            border: ridge 1px transparent;
+            margin-top: -30px;
+            margin-bottom: 40px;"
+          >
+        </p>
+
+        <!-- Botones -->
+        <div class="row botones" style="border: ridge 1px transparent; margin-top: -20px;">
+          <div class="col-3"></div>
+          <div class="col-3" style="border: ridge 1px transparent;">
+            <button
+              id="check-button"
+              type="button"
+              class="btn btn-success"
+            >
+              <b>Verificar</b>
+            </button>
+          </div>
+          <div class="col-3" style="border: ridge 1px transparent;">
+            <button
+              id="reset-button"
+              type="button"
+              class="btn btn-success"
+              onclick="window.location.reload();"
+            >
+              <b>Reiniciar</b>
+            </button>
+          </div>
+          <div class="col-3"></div>
+        </div>
+        <!-- Final de Botones -->
+
+        <br>
+
+        <!-- Siguiente módulo -->
+        <div id="next-section" style="display: none;">
+          <br>
+          <div class="text-center mt-5 mb-5">
+            <a href="../leccion-3/leccion-3.html">
+              <img
+                src="../../static/img/Leccion-2/nina-next-3.png"
+                class="llave-inglesa"
+              >
+            </a>
+          </div>
+        </div>
+        <!-- Final de Siguiente módulo -->
+      </div>
+      <!-- End Right Column -->
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="container-fluid" style="background: #d26da1; padding: 5px;">
+    <div class="text-center img-zoom mb-3 mt-4">
+      <a href="http://www.cenditel.gob.ve/" target="_blank">
+        <img class="logo-brand-mq" src="../../static/img/logo-cenditel.png" width="7%" class="mb-3">
+        <br>
+        <b id="typewriter" style="font-size: 15px; color: #fff"></b>
+      </a>
+    </div>
+  </div>
+  <!-- Final del Footer -->
+
+  <script src="../../static/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function unhover(element) {
+      element.setAttribute('src', '../../static/img/banner.png');
+    }
+    function hover(element) {
+      element.setAttribute('src', '../../static/img/banner2.png');
+    }
+  </script>
+
+  <script>
+    const text = "Desarrollado por CENDITEL";
+    const typewriterElement = document.getElementById("typewriter");
+    let index = 0;
+    let deleting = false;
+
+    function typeEffect() {
+      // Mostrar o borrar caracteres
+      typewriterElement.textContent = text.substring(0, index);
+
+      if (!deleting) {
+        if (index < text.length) {
+          index++;
+        } else {
+          deleting = true;
+          setTimeout(typeEffect, 1000); // Pausa antes de borrar
+          return;
+        }
+      } else {
+        if (index > 0) {
+          index--;
+        } else {
+          deleting = false;
+        }
+      }
+
+      // Cambiar la velocidad dependiendo de si escribe o borra
+      const speed = deleting ? 50 : 100;
+      setTimeout(typeEffect, speed);
+    }
+
+    // Iniciar el efecto
+    typeEffect();
+  </script>
+
+  <script>
+    // Selecciona la barra de progreso
+    const progressBarRosada = document.getElementById('progressBarRosada');
+  
+    // Escuchar el evento de scroll
+    window.addEventListener('scroll', () => {
+    // Altura total del documento
+    const scrollHeight = document.documentElement.scrollHeight;
+  
+    // Altura visible de la ventana
+    const clientHeight = document.documentElement.clientHeight;
+  
+    // Distancia desplazada desde la parte superior
+    const scrollTop = document.documentElement.scrollTop;
+  
+    // Calcular el porcentaje de progreso
+    const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+  
+    // Actualizar el ancho de la barra
+    progressBarRosada.style.width = `${scrollPercentage}%`;
+    });
+  </script>
+
+  <!-- script js puzzle -->
+  <script src="../../static/js/controller-puzzle.js"></script>
+</body>
+</html>

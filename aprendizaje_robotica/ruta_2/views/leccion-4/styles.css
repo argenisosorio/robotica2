@@ -1,0 +1,534 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #00a4e1;
+    --accent-color: #e74c3c;
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --warning-color: #f39c12;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fbbf00;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+    cursor: url("../../static/img/cursor.png"), auto;
+}
+
+b#typewriter {
+    min-height: 24px;
+    display: block;
+}
+
+.llave-inglesa {
+    cursor: url("../../static/img/cursor-llave-inglesa.png"), auto;
+}
+
+.img-rotate-180:hover {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg); /* Opcional para navegadores antiguos */
+    -moz-transform: rotate(360deg); /* Opcional para navegadores antiguos */
+    -o-transform: rotate(360deg); /* Opcional para navegadores antiguos */
+    -ms-transform: rotate(360deg); /* Opcional para navegadores antiguos */
+    transition: transform 1s ease;
+    filter: contrast(120%);
+}
+
+#flecha_derecha {
+    display: none;
+}
+
+.list-group-item {
+    background-color: #fff !important;
+    border-color: #fff !important;
+}
+.list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #fbbf00 !important;
+    border-color: #0d6efd;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 15px;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    border: ridge 1px gray;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+header p {
+    margin: 5px 0 0;
+    font-size: 1rem;
+}
+
+.workspace {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.main-area {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.blocks-panel {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+    order: 2; /* Mueve los bloques arriba en mobile */
+    border: ridge 1px gray;
+}
+
+.blocks-content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.blocks-panel h3 {
+    margin: 10px 0 5px;
+    color: var(--dark-color);
+    font-size: 1rem;
+    border-bottom: 2px solid #bdc3c7;
+    padding-bottom: 5px;
+    position: sticky;
+    top: 0;
+    background-color: #e0e0e0;
+    z-index: 1;
+}
+
+.block {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: grab;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    transition: transform 0.1s;
+    font-size: 0.9rem;
+    touch-action: none; /* Mejorar arrastre en móviles */
+}
+
+.block-start {
+    background-color: var(--accent-color);
+}
+
+.block:hover {
+    transform: scale(1.02);
+}
+
+.stage-area {
+    width: 600px;
+    order: 1;
+}
+
+.stage {
+    width: 100%;
+    height: 250px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.sprite {
+    position: absolute;
+    font-size: 30px;
+    left: 25%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.food {
+    position: absolute;
+    font-size: 25px;
+    left: 75%;
+    top: 33%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.controls {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.run-button, .suggestions-button, .reload-button {
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    user-select: none;
+    border: none;
+    font-size: 0.9rem;
+    flex: 1;
+    text-align: center;
+}
+
+.run-button {
+    background-color: #7cb342;
+    color: #FFFFFF;
+}
+
+.run-button:hover {
+    background-color: #FFFFFF;
+    color: #7cb342;
+}
+
+.reload-button {
+    background-color: #8cafbf;
+    color: #FFFFFF;
+}
+
+.reload-button:hover {
+    background-color: #FFFFFF;
+    color: #8cafbf;
+}
+
+.run-button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+.suggestions-button {
+    background-color: #d26da1;
+    color: #FFFFFF;
+}
+
+.suggestions-button:hover {
+    background-color: #FFFFFF;
+    color: #d26da1;
+}
+
+.scripts-area {
+    order: 3;
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    min-height: 150px;
+    margin-top: 10px;
+    border: ridge 1px gray;
+}
+
+.scripts-area h3 {
+    margin: 0 0 5px;
+    color: var(--dark-color);
+    font-size: 1rem;
+}
+
+.scripts-area p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #7f8c8d;
+}
+
+.output {
+    order: 4;
+    background-color: #d26da1;
+    padding: 10px;
+    border-radius: 8px;
+    min-height: 40px;
+    font-size: 8px;
+    /*margin-top: 15px;*/
+    margin-bottom: 15px;
+    border: ridge 1px gray;
+}
+
+.mission {
+    /*font-weight: bold;*/
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+/* Estilos para cuando se está arrastrando */
+.dragging {
+    opacity: 0.5;
+    transform: scale(1.05);
+}
+
+.drop-zone {
+    border: 2px dashed var(--primary-color);
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+/* Estilos para los bloques en el área de programación */
+.script-block {
+    background-color: red;
+    color: white;
+    padding: 8px;
+    margin: 6px 0;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    font-size: 0.9rem;
+}
+
+.script-block-start {
+    background-color: #9ac31c;
+}
+
+.script-block-action {
+    background-color: #fbbf00;
+}
+
+.script-block-move {
+    background-color: #3498db;
+}
+
+.repeat-block {
+    background-color: #9b59b6;
+    padding: 8px;
+    margin: 6px 0;
+    border-radius: 5px;
+    border-left: 4px solid #8e44ad;
+}
+
+.repeat-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.repeat-content {
+    margin-left: 10px;
+    border-left: 2px solid #8e44ad;
+    padding-left: 8px;
+}
+
+/* Media Queries para responsividad */
+@media (min-width: 600px) {
+    .workspace {
+        flex-direction: row;
+    }
+
+    .main-area {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .blocks-panel {
+        width: 250px;
+        order: 0;
+    }
+
+    .stage-area {
+        flex: 2;
+        order: 1;
+    }
+
+    .scripts-area {
+        flex: 1;
+        min-height: 200px;
+        order: 2;
+        margin-top: 0;
+    }
+
+    .stage {
+        height: 300px;
+    }
+
+    .sprite {
+        font-size: 40px;
+    }
+
+    .food {
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1.1rem;
+    }
+
+    .workspace {
+        gap: 20px;
+    }
+
+    .blocks-content {
+        padding: 15px;
+        max-height: none;
+    }
+
+    .blocks-panel h3 {
+        font-size: 1.1rem;
+    }
+
+    .block {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .stage {
+        height: 350px;
+    }
+
+    .run-button, .suggestions-button, .reload-button {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .scripts-area {
+        min-height: 300px;
+    }
+
+    .scripts-area h3 {
+        font-size: 1.1rem;
+    }
+
+    .output {
+        font-size: 1rem;
+    }
+
+    .mission {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .main-area {
+        flex-wrap: nowrap;
+    }
+    
+    .stage-area {
+        order: 1;
+    }
+
+    .scripts-area {
+        order: 2;
+        min-height: 400px;
+    }
+
+    .stage {
+        height: 400px;
+    }
+}
+
+/* Estilos específicos para móviles */
+@media (max-width: 599px) {
+    .custom-audio {
+        max-width: 100%; /* Ocupa todo el ancho en móviles */
+        border-radius: 5px;
+    }
+
+    .blocks-content {
+        border: ridge 1px transparent;
+        max-height: 600px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+        padding: 10px;
+    }
+    
+    .blocks-panel h3 {
+        position: static;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .block {
+        min-width: 120px;
+        margin: 0;
+    }
+    
+    .controls {
+        flex-direction: row;
+    }
+
+    /* Mejorar experiencia de arrastre en móviles */
+    .block {
+        -webkit-user-select: none;
+        user-select: none;
+        touch-action: none;
+    }
+    
+    .scripts-area {
+        min-height: 200px;
+    }
+
+    .stage-area {
+        width: 400px;
+    }
+}
+
+.block-start {
+    background-color: #9ac31c;
+}
+
+.block-action {
+    background-color: #fbbf00;
+}
+
+h3 {
+    font-size: 14px !important;
+}
+
+/* Dispositivos grandes (escritorio) */
+@media (min-width: 769px) {
+    .logo-brand-mq {
+        width: 60px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Dispositivos pequeños (teléfonos) */
+@media (max-width: 576px) {
+    .logo-brand-mq {
+        width: 80px;
+        margin-bottom: 10px;
+    }
+
+    .stage-area {
+        width: 100%;
+    }
+
+    .btn-control {
+        font-size: 12px !important;
+    }
+}
