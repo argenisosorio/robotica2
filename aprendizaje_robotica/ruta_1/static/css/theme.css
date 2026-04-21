@@ -198,3 +198,12 @@ a:hover {
     font-size: 25px !important;
   }
 }
+
+.video-responsivo {
+  width: 100%;            /* Ocupa todo el ancho disponible del móvil */
+  max-width: 1000px;      /* Pero no se estira más de 1000px en monitores grandes */
+  height: auto;           /* Permite que el navegador gestione la altura */
+  aspect-ratio: 16 / 9;   /* Mantiene la proporción perfecta siempre */
+  display: block;
+  margin: 0 auto;         /* Lo centra horizontalmente */
+}
